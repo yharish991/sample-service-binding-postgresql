@@ -1,0 +1,26 @@
+apiVersion: app.stacks/v1beta1
+kind: RuntimeComponent
+metadata:
+  labels:
+    image.opencontainers.org/title: sample-service-binding-postgresql
+  name: sample-service-binding-postgresql
+spec:
+  applicationImage: harishyayi/sample-service-binding-postgresql:latest
+  createKnativeService: false
+  expose: true
+  service:
+    annotations:
+      prometheus.io/path: /actuator/prometheus
+      prometheus.io/scrape: "true"
+    port: 8080
+    type: NodePort
+  stack: java-spring-boot2
+  version: 1.0.0
+  volumeMounts:
+  - mountPath: /etc/secrets/postgres
+    name: service-binding
+    readOnly: true
+  volumes:
+  - name: service-binding
+    secret:
+      secretName: service-binding
