@@ -15,27 +15,35 @@ Cluster Admin needs to install the following operators into the cluster:
 
 Install the Service Binding Operator with the following command as Cluster Admin.
 
-`make install-service-binding-operator`
+```
+make install-service-binding-operator
+```
 
 ## Install PostgreSQL Operator
 
 Install the PostgreSQL Operator with the following command as Cluster Admin.
 
-`make install-postgresql-db-operator`
+```
+make install-postgresql-db-operator
+```
 
 
 ## Install Runtime Component Operator
 
 Install the Runtime Component Operator with the following command as Cluster Admin.
 
-`make install-runtime-component-operator`
+```
+make install-runtime-component-operator
+```
 
 
 ## Create PostgreSQL database instance
 
 Create an instance of the PostgreSQL db with the following command as an Application Developer.
 
-`make create-postgresql-db-instance`
+```
+make create-postgresql-db-instance
+```
 
 This should create a secret `demo-database-postgresql` and a configmap `demo-database` that has all the necessary information to connect to the database.
 
@@ -47,24 +55,32 @@ Before you deploy the application, build and push the docker image to any image 
 
 * To build the docker image:
 
-`docker build -t mynamespace/myrepository[:tag] .`
+```
+docker build -t mynamespace/myrepository[:tag] .
+```
 
 
 * To push the docker image:
 
-`docker push mynamespace/myrepository[:tag]`
+```
+docker push mynamespace/myrepository[:tag]
+```
 
 * Change the `applicationImage` value in the `app-deploy.yaml` to the image that has been pushed to the registry.
 
 * Now deploy the application with the following command as Application Developer.
 
-`make deploy-application`
+```
+make deploy-application
+```
 
 ## Bind Postgresql database to deployed application
 
 Now express the intent to bind the Postgresql database to the deployed application with the following command as Application Developer.
 
-`make bind-postgresql-to-application`
+```
+make bind-postgresql-to-application
+```
 
 After you run the above command you should see a intermediate secret created with name `service-binding` which has all the information that is necessary to connect to the Postgresql database.
 
@@ -75,9 +91,13 @@ This sample Spring boot application acquires the Secrets via K8s volume mounts a
 
 If you are using Openshift, run the following command to get the host/port information of the route
 
-`oc get route sample-service-binding-postgresql`
+```
+oc get route sample-service-binding-postgresql
+```
 
 To access the application sample endpoint 
 
-`curl http://<<host>>:<<port>>/rest/v1/books`
+```
+curl http://<<host>>:<<port>>/rest/v1/books
+```
 
