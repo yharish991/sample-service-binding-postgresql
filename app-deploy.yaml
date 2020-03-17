@@ -5,7 +5,7 @@ metadata:
     image.opencontainers.org/title: sample-service-binding-postgresql
   name: sample-service-binding-postgresql
 spec:
-  applicationImage: harishyayi/sample-service-binding-postgresql:latest
+  applicationImage: <<applicationImage>>
   createKnativeService: false
   expose: true
   service:
