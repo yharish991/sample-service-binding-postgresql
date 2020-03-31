@@ -7,6 +7,7 @@ install-postgresql-db-operator:
 	kubectl apply -f ./manifests/postgresql-operator-subscription.yaml
 	
 install-runtime-component-operator:
+	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/crds/app.stacks_runtimecomponents_crd.yaml
 	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/service_account.yaml
 	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/role.yaml
 	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/role_binding.yaml
