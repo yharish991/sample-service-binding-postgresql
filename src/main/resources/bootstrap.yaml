@@ -1,6 +1,6 @@
 spring:
   application:
-    name: sample-service-binding-db2
+    name: sample-service-binding-postgresql
   cloud:
     kubernetes:
       secrets:
