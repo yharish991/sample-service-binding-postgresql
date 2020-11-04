@@ -1,9 +1,0 @@
-apiVersion: operators.coreos.com/v1
-kind: CatalogSourceConfig
-metadata:
-  name: service-binding
-  namespace: openshift-marketplace
-spec:
-  targetNamespace: openshift-operators
-  packages: service-binding-operator
-  source: community-operators

@@ -1,9 +1,9 @@
-apiVersion: operators.coreos.com/v1
-kind: OperatorSource
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
 metadata:
-  name: db-operators
-  namespace: openshift-marketplace
+  name: sample-db-operators
+  namespace: default
 spec:
-  type: appregistry
-  endpoint: https://quay.io/cnr
-  registryNamespace: pmacik
+  sourceType: grpc
+  image: quay.io/redhat-developer/sample-db-operators-olm:v1
+  displayName: Sample DB Operators

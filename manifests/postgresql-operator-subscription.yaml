@@ -2,11 +2,13 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: db-operators
-  namespace: openshift-operators
+  namespace: default
+  labels:
+    operators.coreos.com/db-operators.default: ''
 spec:
   channel: stable
+  installPlanApproval: Automatic
   name: db-operators
-  source: db-operators
-  sourceNamespace: openshift-marketplace
-  startingCSV: postgresql-operator.v0.0.8
-  
+  source: sample-db-operators
+  sourceNamespace: default
+  startingCSV: postgresql-operator.v0.0.9

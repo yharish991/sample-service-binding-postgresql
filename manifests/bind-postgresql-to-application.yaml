@@ -1,18 +1,18 @@
-apiVersion: apps.openshift.io/v1alpha1
-kind: ServiceBindingRequest
+apiVersion: operators.coreos.com/v1alpha1
+kind: ServiceBinding
 metadata:
   name: service-binding
 spec:
-  applicationSelector:
+  application:
     group: apps
     resource: deployments
-    resourceRef: sample-service-binding-postgresql
+    name: sample-service-binding-postgresql
     version: v1
-  backingServiceSelector:
-    group: postgresql.baiju.dev
+  services:
+  - group: postgresql.baiju.dev
     kind: Database
-    resourceRef: demo-database
+    name: demo-database
     version: v1alpha1
-  detectBindingResources: true
+    id: postgresDB
   envVarPrefix: postgresql
   

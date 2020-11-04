@@ -4,6 +4,6 @@ metadata:
   name: demo-database
   namespace: default
 spec:
+  dbName: postgres
   image: docker.io/postgres
   imageName: postgres
-  dbName: postgres
