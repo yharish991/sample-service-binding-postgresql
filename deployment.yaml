@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-service-binding-postgresql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-postgres
+  template:
+    metadata:
+      labels:
+        app: sample-postgres
+    spec:
+      containers:
+        - name: sample-postgres
+          image: harishyayi/sample-service-binding-postgresql:4000
+          env:
+            - name: SERVICE_BINDING_ROOT
+              value: "/etc/secrets"
+            - name: org.springframework.cloud.bindings.boot.postgresql.enable
+              value: "true"
+            - name: org.springframework.cloud.bindings.boot.enable
+              value: "true"

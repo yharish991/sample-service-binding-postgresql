@@ -1,7 +1,7 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: ServiceBinding
 metadata:
-  name: service-binding
+  name: postgres
 spec:
   application:
     group: apps
@@ -14,5 +14,19 @@ spec:
     name: demo-database
     version: v1alpha1
     id: postgresDB
-  envVarPrefix: postgresql
-  
+  customEnvVar:
+    - name: host
+      value: '{{ .postgresDB.status.dbConnectionIP }}'
+    - name: port
+      value: '{{ .postgresDB.status.dbConnectionPort }}'
+    - name: database
+      value: '{{ .postgresDB.status.dbName}}'
+    - name: username
+      value: '{{ .postgresDB.status.dbCredentials.user }}'
+    - name: password
+      value: '{{ .postgresDB.status.dbCredentials.password }}'
+    - name: type
+      value: postgresql
+    - name: type1
+      value: postgresql
+  bindAsFiles: true

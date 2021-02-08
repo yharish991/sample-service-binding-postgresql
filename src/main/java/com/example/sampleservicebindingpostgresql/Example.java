@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/rest/v1")
 public class Example {
-    
-    @Autowired
-    BookRepository bookRepo;
-    
-    @RequestMapping("/books")
-    public Iterable<Book> example() {
-        return bookRepo.findAll();
-    }    
-}
 
+//    @Autowired
+//    BookRepository bookRepo;
+
+  @RequestMapping("/books")
+  public String example() {
+    System.out.println(System.getProperty("spring.datasource.password"));
+    return "test";
+  }
+}

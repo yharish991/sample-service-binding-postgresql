@@ -1,11 +1,3 @@
-install-runtime-component-operator:
-	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/crds/app.stacks_runtimecomponents_crd.yaml
-	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/crds/app.stacks_runtimeoperations_crd.yaml
-	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/service_account.yaml
-	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/role.yaml
-	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/role_binding.yaml
-	kubectl create -f https://raw.githubusercontent.com/application-stacks/runtime-component-operator/master/deploy/operator.yaml
-
 install-service-binding-operator:
 	kubectl create -f https://raw.githubusercontent.com/yharish991/service-binding-operator/master/deploy/crds/operators.coreos.com_servicebindings_crd.yaml
 	kubectl create -f https://raw.githubusercontent.com/yharish991/service-binding-operator/master/deploy/role.yaml
@@ -23,7 +15,7 @@ create-postgresql-db-instance:
 	kubectl apply -f ./manifests/create-postgresql-db-instance.yaml
 
 deploy-application:
-	kubectl apply -f app-deploy.yaml
+	kubectl apply -f deployment.yaml
 
 bind-postgresql-to-application:
 	kubectl apply -f ./manifests/bind-postgresql-to-application.yaml	
