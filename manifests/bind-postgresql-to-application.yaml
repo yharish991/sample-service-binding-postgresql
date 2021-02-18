@@ -27,6 +27,4 @@ spec:
       value: '{{ .postgresDB.status.dbCredentials.password }}'
     - name: type
       value: postgresql
-    - name: type1
-      value: postgresql
   bindAsFiles: true

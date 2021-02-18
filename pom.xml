@@ -20,8 +20,9 @@
 
 	<repositories>
 		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
+			<id>spring-repo</id>
+			<name>Spring Repository</name>
+			<url>https://repo.spring.io/release</url>
 		</repository>
 	</repositories>
 
@@ -48,9 +49,9 @@
 
 		<!-- spring-cloud-bindings-->
 		<dependency>
-			<groupId>com.github.yharish991</groupId>
+			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-bindings</artifactId>
-			<version>main-SNAPSHOT</version>
+			<version>1.7.0</version>
 		</dependency>
 
 		<dependency>
